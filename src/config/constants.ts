@@ -140,7 +140,21 @@ export const GAS_TOKENS = {
   "AVAX-FUJI": ["AVAX", "AVAX-FUJI"],
   "ARB-SEPOLIA": ["ETH", "ARB", "ARB-SEPOLIA"],
   "BASE-SEPOLIA": ["ETH", "BASE", "BASE-SEPOLIA"],
+  "BASE-MAINNET": ["ETH", "BASE"],
   "OP-SEPOLIA": ["ETH", "OP", "OP-SEPOLIA"],
+};
+
+// Configuration pour Base Mainnet (pour les swaps)
+export const BASE_MAINNET_CONFIG = {
+  CHAIN_ID: 8453,
+  NETWORK_NAME: "Base",
+  USDC_ADDRESS: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  WETH_ADDRESS: "0x4200000000000000000000000000000000000006",
+  NATIVE_TOKEN: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+  ONEINCH_ROUTER: "0x111111125421cA6dc452d289314280a0f8842A65",
+  RPC_URL: "https://base.llamarpc.com",
+  EXPLORER: "https://basescan.org",
+  SUPPORTED_BY_CIRCLE: true
 };
 
 // Messages d'aide

@@ -3,6 +3,8 @@ import { getSavedWalletSets } from '../services/wallet';
 import { quickTransactionCheck } from '../services/transaction';
 import { showWalletManagement } from './walletManagement';
 import { showBridgeInterface } from './bridge';
+import { showBaseSwapInterface } from './baseSwap';
+import { showUniswapSwapInterface } from './uniswapSwap';
 
 // Main menu
 export const showMainMenu = async (): Promise<void> => {
@@ -19,6 +21,9 @@ export const showMainMenu = async (): Promise<void> => {
 
   choices.push(
     { name: "🆕 Create new wallet set", value: "create" },
+    { name: "🔄 CCTP Bridge", value: "bridge" },
+    { name: "🔷 Base Swap (1inch)", value: "base_swap" },
+    { name: "🦄 Uniswap Swap (Base)", value: "uniswap_swap" },
     { name: "🔍 Track transactions", value: "track" },
     { name: "⚡ Check recent CCTP transactions", value: "check_recent_cctp" },
     { name: "🚪 Exit", value: "exit" }
@@ -40,6 +45,18 @@ export const showMainMenu = async (): Promise<void> => {
       break;
     case "create":
       await showWalletCreation();
+      await showMainMenu();
+      break;
+    case "bridge":
+      await showBridgeMenu();
+      await showMainMenu();
+      break;
+    case "base_swap":
+      await showBaseSwapMenu();
+      await showMainMenu();
+      break;
+    case "uniswap_swap":
+      await showUniswapSwapMenu();
       await showMainMenu();
       break;
     case "track":
@@ -116,6 +133,66 @@ const showTransactionMenu = async () => {
       await monitorTransactionProgress(monitorId, 15);
       break;
   }
+};
+
+// Bridge menu
+const showBridgeMenu = async () => {
+  const walletSets = getSavedWalletSets();
+  if (walletSets.length === 0) {
+    console.log('❌ Aucun wallet set disponible. Créez d\'abord un wallet set.');
+    return;
+  }
+
+  const { walletSetName } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'walletSetName',
+      message: 'Sélectionnez un wallet set pour le bridge:',
+      choices: walletSets.map(ws => ({ name: ws.walletSetName, value: ws.walletSetName }))
+    }
+  ]);
+
+  await showBridgeInterface(walletSetName);
+};
+
+// Base Swap menu
+const showBaseSwapMenu = async () => {
+  const walletSets = getSavedWalletSets();
+  if (walletSets.length === 0) {
+    console.log('❌ Aucun wallet set disponible. Créez d\'abord un wallet set.');
+    return;
+  }
+
+  const { walletSetName } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'walletSetName',
+      message: 'Sélectionnez un wallet set pour le swap Base:',
+      choices: walletSets.map(ws => ({ name: ws.walletSetName, value: ws.walletSetName }))
+    }
+  ]);
+
+  await showBaseSwapInterface(walletSetName);
+};
+
+// Uniswap Swap menu
+const showUniswapSwapMenu = async () => {
+  const walletSets = getSavedWalletSets();
+  if (walletSets.length === 0) {
+    console.log('❌ Aucun wallet set disponible. Créez d\'abord un wallet set.');
+    return;
+  }
+
+  const { walletSetName } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'walletSetName',
+      message: 'Sélectionnez un wallet set pour le swap Uniswap:',
+      choices: walletSets.map(ws => ({ name: ws.walletSetName, value: ws.walletSetName }))
+    }
+  ]);
+
+  await showUniswapSwapInterface(walletSetName);
 };
 
 // Check recent CCTP transactions
