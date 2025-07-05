@@ -1,0 +1,165 @@
+{
+  "TriggVest WalletSet": {
+    "walletSetId": "768264dc-caf0-5e8f-8659-afe7272cae00",
+    "walletSetName": "TriggVest WalletSet",
+    "wallets": [
+      {
+        "id": "c1782722-3d55-5747-bb5c-35ad619f81e9",
+        "address": "0xab7e886c2f8ab5c22354feac4edb4be50e54858f",
+        "blockchain": "ETH-SEPOLIA",
+        "walletSetId": "768264dc-caf0-5e8f-8659-afe7272cae00",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T10:45:49Z"
+      },
+      {
+        "id": "a9db3a56-14bd-595e-b00d-072821caa665",
+        "address": "0xab7e886c2f8ab5c22354feac4edb4be50e54858f",
+        "blockchain": "MATIC-AMOY",
+        "walletSetId": "768264dc-caf0-5e8f-8659-afe7272cae00",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T10:45:49Z"
+      }
+    ],
+    "lastUpdated": "2025-07-05T10:45:49.891Z"
+  },
+  "Nax": {
+    "walletSetId": "14b36a94-e67b-5bd3-a675-d00bd8c012b4",
+    "walletSetName": "Nax",
+    "wallets": [
+      {
+        "id": "3a93e6c9-6a22-5e1a-a10d-102cb61f233c",
+        "address": "0xd96ee458592a1fd8b8e7a898ca9891f374f1670f",
+        "blockchain": "ETH-SEPOLIA",
+        "walletSetId": "14b36a94-e67b-5bd3-a675-d00bd8c012b4",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T10:54:48Z"
+      }
+    ],
+    "lastUpdated": "2025-07-05T10:54:48.112Z"
+  },
+  "naxzerrr": {
+    "walletSetId": "060e1692-3ee0-5dcb-8f1d-096f3d97c1a7",
+    "walletSetName": "naxzerrr",
+    "wallets": [
+      {
+        "id": "ddc991fe-d8b8-5c42-b8c1-2a794e97e9bd",
+        "address": "0x6c6e3a361d5e0e7a4b3e81b3c8354a55acc2ea72",
+        "blockchain": "ETH-SEPOLIA",
+        "walletSetId": "060e1692-3ee0-5dcb-8f1d-096f3d97c1a7",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T10:55:40Z"
+      }
+    ],
+    "lastUpdated": "2025-07-05T10:55:40.776Z"
+  },
+  "newSet": {
+    "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+    "walletSetName": "newSet",
+    "wallets": [
+      {
+        "id": "2970d983-19e2-581f-8b33-3add239829a7",
+        "address": "0x7973e8e38a8d34aff417b0b78820612335f6dfcc",
+        "blockchain": "ETH-SEPOLIA",
+        "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:15:17Z"
+      },
+      {
+        "id": "a3bc3c6b-2b00-5846-a6c0-1bc2c6eb324d",
+        "address": "0x7973e8e38a8d34aff417b0b78820612335f6dfcc",
+        "blockchain": "MATIC-AMOY",
+        "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:15:17Z"
+      },
+      {
+        "id": "d88ae155-acd5-51d5-b7ba-182ed6a4fb7b",
+        "address": "0x7973e8e38a8d34aff417b0b78820612335f6dfcc",
+        "blockchain": "AVAX-FUJI",
+        "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:15:17Z"
+      },
+      {
+        "id": "4d361854-8a48-5941-a854-b542a5e8be59",
+        "address": "0x7973e8e38a8d34aff417b0b78820612335f6dfcc",
+        "blockchain": "ARB-SEPOLIA",
+        "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:15:17Z"
+      },
+      {
+        "id": "04a8b1f2-a80b-5ced-b42d-36db71521759",
+        "address": "0x7973e8e38a8d34aff417b0b78820612335f6dfcc",
+        "blockchain": "BASE-SEPOLIA",
+        "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:15:17Z"
+      },
+      {
+        "id": "a4e0355d-3125-589d-b6d0-74572da768a9",
+        "address": "0x7973e8e38a8d34aff417b0b78820612335f6dfcc",
+        "blockchain": "OP-SEPOLIA",
+        "walletSetId": "4d09a540-616f-5113-ba2e-f530817e81fb",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:15:17Z"
+      }
+    ],
+    "lastUpdated": "2025-07-05T11:15:17.917Z"
+  },
+  "Cyas": {
+    "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+    "walletSetName": "Cyas",
+    "wallets": [
+      {
+        "id": "3cd71e59-5378-5b57-8c55-59fe8bf97a17",
+        "address": "0xdccfbe886f3fdffda7062783c631c538d5727011",
+        "blockchain": "ETH-SEPOLIA",
+        "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:41:09Z"
+      },
+      {
+        "id": "10385345-0ec5-5d5a-8602-d5331fb802c2",
+        "address": "0xdccfbe886f3fdffda7062783c631c538d5727011",
+        "blockchain": "MATIC-AMOY",
+        "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:41:09Z"
+      },
+      {
+        "id": "0302a7cc-1c6a-5b84-97f6-336be475aaab",
+        "address": "0xdccfbe886f3fdffda7062783c631c538d5727011",
+        "blockchain": "AVAX-FUJI",
+        "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:41:09Z"
+      },
+      {
+        "id": "83e2215e-5ac9-5798-8d17-d1dd05eaca10",
+        "address": "0xdccfbe886f3fdffda7062783c631c538d5727011",
+        "blockchain": "ARB-SEPOLIA",
+        "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:41:09Z"
+      },
+      {
+        "id": "a26bc59e-ba65-5773-9928-80866ad03074",
+        "address": "0xdccfbe886f3fdffda7062783c631c538d5727011",
+        "blockchain": "BASE-SEPOLIA",
+        "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:41:09Z"
+      },
+      {
+        "id": "b5fd18f2-2c96-5ac7-9b65-d8ad49a31f00",
+        "address": "0xdccfbe886f3fdffda7062783c631c538d5727011",
+        "blockchain": "OP-SEPOLIA",
+        "walletSetId": "5178c046-946f-5b3a-ae20-6af8889a838a",
+        "accountType": "EOA",
+        "createDate": "2025-07-05T11:41:09Z"
+      }
+    ],
+    "lastUpdated": "2025-07-05T11:41:09.182Z"
+  }
+}

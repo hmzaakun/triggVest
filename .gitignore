@@ -1,0 +1,14 @@
+/node_modules
+/dist
+/build
+/coverage
+/logs
+/temp
+/test
+/test-results
+/test-results-old
+/test-results-old-old
+/test-results-old-old-old
+
+.env
+recovery_file_1751711233731.dat
