@@ -150,6 +150,20 @@ if (result.success) {
 }
 ```
 
+#### Swap ETH vers USDC (Uniswap V3)
+
+```typescript
+import { swapExactETHToUSDC } from './src/examples/eth-to-usdc-swap';
+
+// Swap 0.001 ETH vers USDC sur Sepolia
+const result = await swapExactETHToUSDC("wallet-id", "0.001");
+
+if (result.success) {
+  console.log(`Swap réussi! TX: ${result.transactionId}`);
+  console.log(`USDC reçu: ~${result.expectedUSDC} USDC`);
+}
+```
+
 ### Wallet Service (`src/services/wallet.ts`)
 
 Gestion locale des wallets (fichier JSON).
@@ -358,6 +372,67 @@ console.log(HELP_MESSAGES.BRIDGE_REQUIREMENTS);
 console.log(HELP_MESSAGES.TIMEOUT_RECOVERY);
 ```
 
+## 🔒 **Limitations & Contrôle des wallets**
+
+### ⚠️ **Important: Architecture MPC**
+
+Circle utilise la technologie **MPC (Multi-Party Computation) 2-of-2**, ce qui signifie :
+
+❌ **Pas de seed phrase BIP39 extractible**  
+❌ **Pas de clé privée unique accessible**  
+✅ **Sécurité renforcée via distribution des clés**  
+✅ **Contrôle via API Circle uniquement**
+
+```typescript
+// ❌ IMPOSSIBLE avec Circle MPC
+const privateKey = extractPrivateKey("recovery_file.dat"); // N'existe pas
+
+// ✅ POSSIBLE via Circle API
+const transaction = await createContractTransaction({
+  walletId: "your-wallet-id",
+  contractAddress: uniswapRouter,
+  abiFunctionSignature: "exactInputSingle(...)",
+  abiParameters: [swapParams]
+});
+```
+
+### 🛠️ **Options pour plus de contrôle**
+
+#### Option 1: Swaps via Circle API
+```typescript
+// Voir: src/examples/custom-swap-example.ts
+import { swapUSDCToWETH } from './src/examples/custom-swap-example';
+
+const swap = await swapUSDCToWETH(walletId, "1000000", "500000000000000");
+```
+
+#### Option 2: Migration vers Self-Custody
+```typescript
+// Voir: src/examples/export-to-self-custody.ts
+import { migrateToSelfCustody, createSelfCustodyWallet } from './src/examples/export-to-self-custody';
+
+// 1. Créer wallet avec seed phrase
+const selfWallet = createSelfCustodyWallet();
+
+// 2. Migrer les fonds Circle
+await migrateToSelfCustody(circleWalletId, selfWallet.address);
+
+// 3. Contrôle total avec ethers.js
+const provider = new ethers.JsonRpcProvider(rpcUrl);
+const wallet = new ethers.Wallet(selfWallet.privateKey, provider);
+```
+
+#### Option 3: Setup MPC Personnel
+```typescript
+// Contact Circle pour héberger tes propres nœuds MPC
+// Email: developers@circle.com
+const mpcConfig = {
+  sharedKeyManagement: true,
+  keyguardService: "your-server",
+  selfHostedNodes: 1 // ou 2 pour contrôle total
+};
+```
+
 ## 🧪 Tests et développement
 
 ### Mode debug
@@ -387,6 +462,28 @@ Object.entries(FAUCET_INFO).forEach(([chain, faucets]) => {
   });
 });
 ```
+
+### Test rapide - Swap ETH vers USDC
+
+Pour tester rapidement un swap de 0.001 ETH vers USDC :
+
+```bash
+# 1. Assure-toi d'avoir un wallet avec ETH-SEPOLIA
+npm run dev  # Créer un wallet si nécessaire
+
+# 2. Obtenir des ETH Sepolia (faucet)
+# https://sepoliafaucet.com/
+
+# 3. Tester le swap
+npm run test:swap
+```
+
+Le script va automatiquement :
+- ✅ Détecter ton wallet Sepolia
+- ✅ Vérifier la balance ETH
+- ✅ Exécuter le swap via Uniswap V3
+- ✅ Attendre la confirmation
+- ✅ Afficher les résultats
 
 ## 🎯 Prochaines étapes (TriggVest complet)
 

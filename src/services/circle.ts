@@ -104,6 +104,48 @@ export const getWalletBalance = async (walletId: string) => {
   }
 };
 
+// Get wallet balance for specific token
+export const getWalletTokenBalance = async (walletId: string, tokenSymbol: string = "USDC") => {
+  const balances = await getWalletBalance(walletId);
+  
+  if (!balances || balances.length === 0) {
+    return null;
+  }
+
+  // Find the specific token balance
+  const tokenBalance = balances.find(balance => 
+    balance.token?.symbol?.toUpperCase() === tokenSymbol.toUpperCase()
+  );
+
+  return tokenBalance || null;
+};
+
+// Create simple transaction (transfer)
+export const createTransaction = async (params: {
+  walletId: string;
+  tokenId: string;
+  destinationAddress: string;
+  amounts: string[];
+  feeLevel?: "LOW" | "MEDIUM" | "HIGH";
+}) => {
+  const client = createCircleClient();
+  
+  const response = await client.createTransaction({
+    walletId: params.walletId,
+    tokenId: params.tokenId,
+    destinationAddress: params.destinationAddress,
+    amount: params.amounts, // Circle API expects 'amount' not 'amounts'
+    fee: {
+      type: "level",
+      config: {
+        feeLevel: params.feeLevel || "HIGH"
+      }
+    }
+  });
+
+  return response;
+};
+
 // Create contract execution transaction
 export const createContractTransaction = async (params: {
   walletId: string;
@@ -122,7 +164,7 @@ export const createContractTransaction = async (params: {
     fee: {
       type: "level",
       config: {
-        feeLevel: params.feeLevel || "MEDIUM"
+        feeLevel: params.feeLevel || "HIGH"
       }
     }
   });
